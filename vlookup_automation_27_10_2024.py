@@ -32,14 +32,26 @@ import time
 #         # active_Workbook_name()
 #         return "opne Excel"
 
+# import xlwings as xw
+# def active_Workbook_name():
+#     if xw.apps:
+#        wb = xw.apps.active.books.active
+#        print(wb.name)
+#        return wb.name
+    
+#     else:
+#          print("No active Excel application found.")
 
+#
 def active_workbook_name():
     try:
         # Check if there are any open instances of Excel
         if xw.apps:
             # Get the active application and workbook
             wb = xw.apps.active.books.active
-            print("Active Workbook Name:", wb.name)
+           
+            print(wb.name)
+            return wb.name
         else:
             print("No active Excel application found.")
     except Exception as e:
