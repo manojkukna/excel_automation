@@ -36,7 +36,8 @@ import time
 import xlwings as xw
 def active_Workbook_name()
     if xw.apps:
-       wb = xw.apps.active.books.active
+        print(wb.name)
+        wb = xw.apps.active.books.active
     else:
          print("No active Excel application found.")
 # active_Workbook_name()
