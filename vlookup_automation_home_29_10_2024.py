@@ -80,15 +80,21 @@ def time_():
     time_ = time.strftime("%H:%M:%S", time.localtime())
     return (time_)
 
-# import streamlit as st
+import xlwings as xw
 
 
-def active_Workbook_name():
+def active_Workbook_name2():
     if xw.apps:
-        wb = xw.apps.active.books.active
-        return wb.name  # Return the workbook name instead of printing it
+       wb = xw.apps.active.books.active
+       print(wb.name)
+       return wb.name
+
     else:
-        return "No active Excel application found."
+         print("No active Excel application found.")
+
+# active_Workbook_name2()
+
+
 
 total1,total2,total3,total4= st.columns(4, gap="small")
 import streamlit as st
@@ -156,8 +162,8 @@ def run():
             col1, col2, col3= st.columns(3)
 
             with col1:
-
-                st.text_input("active_Workbook_name",value= active_Workbook_name())
+                value_name = active_Workbook_name2()
+                st.text_input("active_Workbook_name",value= value_name)
 
             with col2:
                 selected_table_array_sheet_name = st.selectbox("selected_table_array_sheet_name",va.sheet_names_list(),key='selected_VLOOKUP_sheet_name')
