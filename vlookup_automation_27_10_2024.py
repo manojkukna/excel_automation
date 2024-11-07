@@ -15,22 +15,30 @@ def time_():
     time_ = time.strftime("%H:%M:%S", time.localtime())
     return (time_)
 
-import xlwings as xw
+
 import time
 
 
-def active_Workbook_name():
-    try:
-        wb = xw.apps.active.books.active
-        print(wb.name)
-        return wb.name
-    except  Exception as e:  # This catches xlwings-specific errors
-        print("time",time_(),"opne is Excel.",e)
-        time.sleep(1)
+# def active_Workbook_name():
+#     import xlwings as xw
+#     try:
+#         wb = xw.apps.active.books.active
+#         print(wb.name)
+        
+#     except  Exception as e:  # This catches xlwings-specific errors
+#         print("time",time_(),"opne is Excel.",e)
+#         time.sleep(1)
 
-        # active_Workbook_name()
-        return "opne Excel"
+#         # active_Workbook_name()
+#         return "opne Excel"
 
+
+import xlwings as xw
+def active_Workbook_name()
+    if xw.apps:
+       wb = xw.apps.active.books.active
+    else:
+         print("No active Excel application found.")
 # active_Workbook_name()
 
 
