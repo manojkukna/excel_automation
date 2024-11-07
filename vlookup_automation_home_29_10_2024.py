@@ -83,6 +83,13 @@ def time_():
 # import streamlit as st
 
 
+def active_Workbook_name():
+    if xw.apps:
+        wb = xw.apps.active.books.active
+        return wb.name  # Return the workbook name instead of printing it
+    else:
+        return "No active Excel application found."
+
 total1,total2,total3,total4= st.columns(4, gap="small")
 import streamlit as st
 
@@ -150,7 +157,7 @@ def run():
 
             with col1:
 
-                st.text_input("active_Workbook_name",value= va.active_Workbook_name())
+                st.text_input("active_Workbook_name",value= active_Workbook_name())
 
             with col2:
                 selected_table_array_sheet_name = st.selectbox("selected_table_array_sheet_name",va.sheet_names_list(),key='selected_VLOOKUP_sheet_name')
